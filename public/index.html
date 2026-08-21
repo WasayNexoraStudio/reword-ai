@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RewordAI - AI powered paraphrasing tool. Paraphrase smarter, write better." />
+  <title>RewordAI - AI Paraphraser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">RewordAI</h1>
+      <p class="tagline">Paraphrase smarter, write better.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
+      <button class="mode-btn active" data-mode="Standard">Standard</button>
+      <button class="mode-btn" data-mode="Fluency">Fluency</button>
+      <button class="mode-btn" data-mode="Creative">Creative</button>
+      <button class="mode-btn" data-mode="Formal">Formal</button>
+      <button class="mode-btn" data-mode="Shorten">Shorten</button>
+      <button class="mode-btn" data-mode="Expand">Expand</button>
+    </div>
+
+    <div class="card">
+      <label class="field-label" for="inputText">Paste your text here</label>
+      <textarea
+        id="inputText"
+        class="textarea"
+        placeholder="Type or paste the text you want to reword..."
+        rows="8"
+      ></textarea>
+      <div class="row-between">
+        <span class="word-count" id="inputCount">0 words</span>
+        <button id="paraphraseBtn" class="btn btn-primary">Paraphrase</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-between">
+        <span class="field-label" id="outputLabel">Rewritten text</span>
+        <button id="copyBtn" class="btn btn-ghost" disabled>Copy</button>
+      </div>
+      <div id="output" class="output" aria-live="polite">
+        <p class="placeholder">Your paraphrased text will appear here.</p>
+      </div>
+      <div class="row-between">
+        <span class="word-count" id="outputCount">0 words</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

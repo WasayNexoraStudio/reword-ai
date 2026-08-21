@@ -1,0 +1,17 @@
+{
+  "name": "rewordai",
+  "version": "1.0.0",
+  "description": "RewordAI - AI Paraphraser",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "serverless-http": "^4.0.0"
+  }
+}

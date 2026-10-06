@@ -3,20 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="RewordAI - AI powered paraphrasing tool. Paraphrase smarter, write better." />
-  <title>RewordAI - AI Paraphraser</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <title>Free AI Paraphrasing Tool | RewordAI Text Rewriter</title>
+  <meta name="description" content="Free AI paraphrasing tool to rewrite essays, emails, and articles. Reword text in Standard, Fluency, Creative, Formal, Shorten, or Expand mode. Fast, private, no signup." />
+  <meta name="keywords" content="paraphrasing tool, AI paraphraser, rewrite text, reword essay, free paraphrasing tool, article rewriter, sentence rewriter, RewordAI" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="RewordAI" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="canonical" href="https://reword-ai-six.vercel.app/" />
+  <link rel="alternate" hreflang="en" href="https://reword-ai-six.vercel.app/" />
+  <link rel="sitemap" type="application/xml" href="https://reword-ai-six.vercel.app/sitemap.xml" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RewordAI" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://reword-ai-six.vercel.app/" />
+  <meta property="og:title" content="Free AI Paraphrasing Tool | RewordAI" />
+  <meta property="og:description" content="Rewrite any text in seconds with RewordAI. Choose Standard, Fluency, Creative, Formal, Shorten, or Expand." />
+  <meta property="og:image" content="https://reword-ai-six.vercel.app/og.svg" />
+  <meta property="og:image:alt" content="RewordAI free AI paraphrasing tool" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free AI Paraphrasing Tool | RewordAI" />
+  <meta name="twitter:description" content="Rewrite essays, emails, and articles instantly. Free AI paraphraser with six writing modes." />
+  <meta name="twitter:image" content="https://reword-ai-six.vercel.app/og.svg" />
+
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://reword-ai-six.vercel.app/#website",
+        "url": "https://reword-ai-six.vercel.app/",
+        "name": "RewordAI",
+        "description": "Free AI paraphrasing tool to rewrite text in different tones and styles.",
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://reword-ai-six.vercel.app/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://reword-ai-six.vercel.app/#app",
+        "name": "RewordAI",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "url": "https://reword-ai-six.vercel.app/",
+        "description": "Free online AI paraphraser that rewrites text in Standard, Fluency, Creative, Formal, Shorten, and Expand modes.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://reword-ai-six.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is RewordAI a free paraphrasing tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. RewordAI is a free AI paraphrasing tool. Paste your text, choose a mode, and rewrite without creating an account."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I paraphrase text with RewordAI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paste your sentence, paragraph, or article into the box, pick a mode such as Standard, Fluency, Creative, Formal, Shorten, or Expand, then click Paraphrase."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use RewordAI to rewrite essays and emails?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. RewordAI rewrites essays, emails, blog posts, and other writing while keeping the original meaning."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="header">
     <div class="container">
       <h1 class="logo">RewordAI</h1>
-      <p class="tagline">Paraphrase smarter, write better.</p>
+      <p class="tagline">Free AI paraphrasing tool. Rewrite text, keep your meaning.</p>
     </div>
   </header>
 
   <main class="container">
+    <section class="intro" aria-labelledby="tool-heading">
+      <h2 id="tool-heading" class="sr-only">AI paraphraser</h2>
+      <p class="intro-text">Paste any sentence, paragraph, or article and RewordAI will rewrite it in seconds. Use it as a free paraphrasing tool for essays, emails, and blog posts.</p>
+    </section>
+
     <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
       <button class="mode-btn active" data-mode="Standard">Standard</button>
       <button class="mode-btn" data-mode="Fluency">Fluency</button>
@@ -52,7 +144,35 @@
         <span class="word-count" id="outputCount">0 words</span>
       </div>
     </div>
+
+    <section class="seo-block" aria-labelledby="modes-heading">
+      <h2 id="modes-heading">Paraphrase modes</h2>
+      <ul class="mode-list">
+        <li><strong>Standard</strong> — rewrite naturally while keeping the original meaning.</li>
+        <li><strong>Fluency</strong> — make the writing smoother and easier to read.</li>
+        <li><strong>Creative</strong> — add a more unique, engaging voice.</li>
+        <li><strong>Formal</strong> — switch to a professional, academic tone.</li>
+        <li><strong>Shorten</strong> — cut extra words without dropping key facts.</li>
+        <li><strong>Expand</strong> — add detail and depth to short drafts.</li>
+      </ul>
+    </section>
+
+    <section class="seo-block" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently asked questions</h2>
+      <h3>Is RewordAI free?</h3>
+      <p>Yes. You can paraphrase online without signing up.</p>
+      <h3>What can I rewrite?</h3>
+      <p>Essays, emails, articles, product copy, and homework explanations. Keep the meaning, change the wording.</p>
+      <h3>How is this different from a simple synonym swapper?</h3>
+      <p>RewordAI rewrites full sentences with AI, not one-word replacements, so the result reads like natural English.</p>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>

@@ -53,6 +53,63 @@ body {
   margin-top: 4px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.intro {
+  margin-bottom: 16px;
+}
+
+.intro-text {
+  color: var(--muted);
+  font-size: 15px;
+  text-align: center;
+}
+
+.seo-block {
+  margin: 28px 0;
+}
+
+.seo-block h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.seo-block h3 {
+  font-size: 16px;
+  margin: 16px 0 6px;
+}
+
+.seo-block p,
+.mode-list {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.mode-list {
+  padding-left: 20px;
+}
+
+.mode-list li {
+  margin-bottom: 8px;
+}
+
+.footer {
+  padding: 24px 0 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;

@@ -1,0 +1,9 @@
+{
+  "name": "RewordAI - Free AI Paraphrasing Tool",
+  "short_name": "RewordAI",
+  "description": "Rewrite text with a free AI paraphraser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5"
+}

@@ -7,6 +7,20 @@ const MODES = {
   Expand: "Rewrite the text by adding more detail and depth while keeping the meaning.",
 };
 
+const GEMINI_DEFAULT = "gemini-2.0-flash";
+const GEMINI_FALLBACKS = ["gemini-2.0-flash", "gemini-2.5-flash", "gemini-1.5-flash"];
+
+const GEMINI_ALIASES = {
+  "3.8 flash": GEMINI_DEFAULT,
+  "3.8-flash": GEMINI_DEFAULT,
+  "gemini-3.8-flash": GEMINI_DEFAULT,
+  "gemini-3-flash": GEMINI_DEFAULT,
+  "gemini-3.0-flash": GEMINI_DEFAULT,
+  flash: GEMINI_DEFAULT,
+  "gemini-flash": GEMINI_DEFAULT,
+  "gemini-flash-latest": GEMINI_DEFAULT,
+};
+
 function wordCount(text) {
   const words = String(text).trim().match(/\S+/g);
   return words ? words.length : 0;
@@ -37,7 +51,19 @@ function parseBody(req) {
 function isGemini(baseUrl, model) {
   const url = String(baseUrl || "").toLowerCase();
   const name = String(model || "").toLowerCase();
-  return url.includes("generativelanguage.googleapis.com") || name.startsWith("gemini");
+  return url.includes("generativelanguage.googleapis.com") || name.includes("gemini") || name.includes("flash");
+}
+
+function resolveGeminiModel(model) {
+  const raw = String(model || "").trim();
+  if (!raw) return GEMINI_DEFAULT;
+  const key = raw.toLowerCase();
+  return GEMINI_ALIASES[key] || raw;
+}
+
+function geminiModelList(preferred) {
+  const first = resolveGeminiModel(preferred);
+  return [...new Set([first, ...GEMINI_FALLBACKS])];
 }
 
 function extractGeminiText(data) {
@@ -46,10 +72,18 @@ function extractGeminiText(data) {
   return parts.map((part) => part?.text || "").join("").trim();
 }
 
-async function paraphraseWithGemini({ apiKey, baseUrl, model, system, prompt }) {
+function geminiErrorMessage(status, body) {
+  if (status === 400) return "Gemini rejected the request. Check USER_LLM_MODEL.";
+  if (status === 403) return "Gemini API key is invalid or blocked.";
+  if (status === 404) return "Gemini model not found. Use gemini-2.0-flash.";
+  if (status === 429) return "Gemini rate limit reached. Wait a minute and try again.";
+  return `Upstream API error: ${status}${body ? ` (${body})` : ""}`;
+}
+
+async function callGemini({ apiKey, baseUrl, model, system, prompt }) {
   const root = (baseUrl || "https://generativelanguage.googleapis.com/v1beta").replace(/\/$/, "");
   const endpoint = `${root}/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
-  const response = await fetch(endpoint, {
+  return fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -58,7 +92,39 @@ async function paraphraseWithGemini({ apiKey, baseUrl, model, system, prompt }) 
       generationConfig: { temperature: 0.8 },
     }),
   });
-  return { response, extract: extractGeminiText };
+}
+
+async function paraphraseWithGemini({ apiKey, baseUrl, model, system, prompt }) {
+  const models = geminiModelList(model);
+  let lastStatus = 0;
+  let lastSnippet = "";
+
+  for (const candidate of models) {
+    const response = await callGemini({ apiKey, baseUrl, model: candidate, system, prompt });
+    if (response.ok) {
+      return { response, extract: extractGeminiText };
+    }
+    lastStatus = response.status;
+    const errText = await response.text();
+    lastSnippet = errText.slice(0, 120);
+    if (response.status !== 404) {
+      const fake = {
+        ok: false,
+        status: response.status,
+        errorMessage: geminiErrorMessage(response.status, lastSnippet),
+      };
+      return { response: fake, extract: extractGeminiText };
+    }
+  }
+
+  return {
+    response: {
+      ok: false,
+      status: lastStatus || 404,
+      errorMessage: geminiErrorMessage(lastStatus || 404, lastSnippet),
+    },
+    extract: extractGeminiText,
+  };
 }
 
 async function paraphraseWithOpenAI({ apiKey, baseUrl, model, system, prompt }) {
@@ -120,9 +186,9 @@ export default async function handler(req, res) {
         ? "https://generativelanguage.googleapis.com/v1beta"
         : "https://api.deepseek.com/v1")
     ).replace(/\/$/, "");
-    const model = configuredModel || (gemini ? "gemini-2.0-flash" : "deepseek-chat");
+    const model = configuredModel || (gemini ? GEMINI_DEFAULT : "deepseek-chat");
 
-    if (!apiKey || apiKey === "your-api-key-here") {
+    if (!apiKey || apiKey === "your-api-key-here" || apiKey === "your-gemini-api-key-here") {
       return res.status(500).json({
         error:
           "No API key configured. Set USER_LLM_API_KEY in your Vercel project environment variables.",
@@ -140,7 +206,9 @@ export default async function handler(req, res) {
       : await paraphraseWithOpenAI({ apiKey, baseUrl, model, system, prompt });
 
     if (!response.ok) {
-      return res.status(502).json({ error: `Upstream API error: ${response.status}` });
+      return res.status(502).json({
+        error: response.errorMessage || `Upstream API error: ${response.status}`,
+      });
     }
 
     const data = await response.json();

@@ -54,6 +54,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "og.png",
+      "use": "@vercel/static"
+    },
+    {
       "src": "site.webmanifest",
       "use": "@vercel/static"
     }
@@ -114,6 +118,10 @@
     {
       "src": "/og.svg",
       "dest": "/og.svg"
+    },
+    {
+      "src": "/og.png",
+      "dest": "/og.png"
     },
     {
       "src": "/site.webmanifest",

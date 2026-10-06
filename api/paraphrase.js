@@ -34,6 +34,57 @@ function parseBody(req) {
   return {};
 }
 
+function isGemini(baseUrl, model) {
+  const url = String(baseUrl || "").toLowerCase();
+  const name = String(model || "").toLowerCase();
+  return url.includes("generativelanguage.googleapis.com") || name.startsWith("gemini");
+}
+
+function extractGeminiText(data) {
+  const parts = data?.candidates?.[0]?.content?.parts;
+  if (!Array.isArray(parts)) return "";
+  return parts.map((part) => part?.text || "").join("").trim();
+}
+
+async function paraphraseWithGemini({ apiKey, baseUrl, model, system, prompt }) {
+  const root = (baseUrl || "https://generativelanguage.googleapis.com/v1beta").replace(/\/$/, "");
+  const endpoint = `${root}/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: system }] },
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: { temperature: 0.8 },
+    }),
+  });
+  return { response, extract: extractGeminiText };
+}
+
+async function paraphraseWithOpenAI({ apiKey, baseUrl, model, system, prompt }) {
+  const root = (baseUrl || "https://api.deepseek.com/v1").replace(/\/$/, "");
+  const response = await fetch(`${root}/chat/completions`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model,
+      messages: [
+        { role: "system", content: system },
+        { role: "user", content: prompt },
+      ],
+      temperature: 0.8,
+      stream: false,
+    }),
+  });
+  return {
+    response,
+    extract: (data) => data.choices?.[0]?.message?.content?.trim() || "",
+  };
+}
+
 export default async function handler(req, res) {
   try {
     res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -60,11 +111,16 @@ export default async function handler(req, res) {
 
     const style = MODES[mode] || MODES.Standard;
     const apiKey = process.env.USER_LLM_API_KEY;
-    const baseUrl = (process.env.USER_LLM_BASE_URL || "https://api.deepseek.com/v1").replace(
-      /\/$/,
-      ""
-    );
-    const model = process.env.USER_LLM_MODEL || "deepseek-chat";
+    const configuredUrl = process.env.USER_LLM_BASE_URL;
+    const configuredModel = process.env.USER_LLM_MODEL;
+    const gemini = isGemini(configuredUrl, configuredModel);
+    const baseUrl = (
+      configuredUrl ||
+      (gemini
+        ? "https://generativelanguage.googleapis.com/v1beta"
+        : "https://api.deepseek.com/v1")
+    ).replace(/\/$/, "");
+    const model = configuredModel || (gemini ? "gemini-2.0-flash" : "deepseek-chat");
 
     if (!apiKey || apiKey === "your-api-key-here") {
       return res.status(500).json({
@@ -79,29 +135,16 @@ export default async function handler(req, res) {
       "Return only the rewritten text, no explanations, no quotes, no preamble.";
     const prompt = `${style}\n\nOriginal text:\n${text}`;
 
-    const response = await fetch(`${baseUrl}/chat/completions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model,
-        messages: [
-          { role: "system", content: system },
-          { role: "user", content: prompt },
-        ],
-        temperature: 0.8,
-        stream: false,
-      }),
-    });
+    const { response, extract } = gemini
+      ? await paraphraseWithGemini({ apiKey, baseUrl, model, system, prompt })
+      : await paraphraseWithOpenAI({ apiKey, baseUrl, model, system, prompt });
 
     if (!response.ok) {
       return res.status(502).json({ error: `Upstream API error: ${response.status}` });
     }
 
     const data = await response.json();
-    const output = data.choices?.[0]?.message?.content?.trim();
+    const output = extract(data);
     if (!output) {
       return res.status(502).json({ error: "Empty response from upstream API." });
     }

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Sentence Rewriter | AI Sentence Paraphraser - RewordAI</title>
+  <meta name="description" content="Free sentence rewriter that paraphrases one line at a time. Rewrite awkward sentences, keep the meaning, and get clearer English with RewordAI." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://reword-ai-six.vercel.app/sentence-rewriter" />
+  <meta name="google-site-verification" content="B0_zV7OJkmk1e_Sh_taHDTtrHWsYbKVw23x0OM4N7ZA" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <meta property="og:title" content="Free Sentence Rewriter | RewordAI" />
+  <meta property="og:description" content="Rewrite one sentence at a time with a free AI sentence paraphraser." />
+  <meta property="og:url" content="https://reword-ai-six.vercel.app/sentence-rewriter" />
+  <meta property="og:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Free Sentence Rewriter",
+        "url": "https://reword-ai-six.vercel.app/sentence-rewriter",
+        "description": "Free AI sentence rewriter that paraphrases one sentence while keeping the original meaning."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RewordAI", "item": "https://reword-ai-six.vercel.app/"},
+          {"@type": "ListItem", "position": 2, "name": "Sentence rewriter", "item": "https://reword-ai-six.vercel.app/sentence-rewriter"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a sentence rewriter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A sentence rewriter changes the wording of one sentence so it sounds clearer or more natural, without changing the meaning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this sentence rewriter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste a sentence into RewordAI and rewrite it without creating an account."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="logo-link" href="/"><p class="logo">RewordAI</p></a>
+      <p class="tagline">Free sentence rewriter. Clearer wording, same meaning.</p>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Paraphrasing tool</a>
+        <a href="/sentence-rewriter" aria-current="page">Sentence rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> / Sentence rewriter
+    </nav>
+    <h1 class="page-title">Free sentence rewriter</h1>
+    <p class="intro-text left">Paste one sentence and RewordAI will paraphrase it. Use this as a free sentence rewriter for emails, homework, captions, and short product copy.</p>
+
+    <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
+      <button class="mode-btn active" data-mode="Fluency">Fluency</button>
+      <button class="mode-btn" data-mode="Standard">Standard</button>
+      <button class="mode-btn" data-mode="Formal">Formal</button>
+      <button class="mode-btn" data-mode="Creative">Creative</button>
+      <button class="mode-btn" data-mode="Shorten">Shorten</button>
+      <button class="mode-btn" data-mode="Expand">Expand</button>
+    </div>
+
+    <div class="card">
+      <label class="field-label" for="inputText">Paste one sentence</label>
+      <textarea id="inputText" class="textarea" placeholder="Paste the sentence you want to rewrite..." rows="6"></textarea>
+      <div class="row-between">
+        <span class="word-count" id="inputCount">0 words</span>
+        <button id="paraphraseBtn" class="btn btn-primary">Rewrite sentence</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-between">
+        <span class="field-label" id="outputLabel">Rewritten sentence</span>
+        <button id="copyBtn" class="btn btn-ghost" disabled>Copy</button>
+      </div>
+      <div id="output" class="output" aria-live="polite">
+        <p class="placeholder">Your rewritten sentence will appear here.</p>
+      </div>
+      <div class="row-between">
+        <span class="word-count" id="outputCount">0 words</span>
+      </div>
+    </div>
+
+    <section class="seo-block">
+      <h2>When to use a sentence rewriter</h2>
+      <p>Use it when a line sounds stiff, too long, or too casual. Fluency makes the sentence easier to read. Formal is better for academic or work email. Shorten removes extra words.</p>
+      <p>Need a full paper rewritten? Open the <a href="/paraphrase-essay">essay paraphraser</a>. New to rewriting? Read <a href="/how-to-paraphrase">how to paraphrase</a>.</p>
+    </section>
+
+    <section class="seo-block">
+      <h2>FAQ</h2>
+      <h3>What is a sentence rewriter?</h3>
+      <p>It changes the wording of one sentence so it sounds clearer, without changing the meaning.</p>
+      <h3>Is this sentence rewriter free?</h3>
+      <p>Yes. No signup is required.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+      </nav>
+      <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

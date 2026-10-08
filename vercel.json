@@ -60,6 +60,18 @@
     {
       "src": "site.webmanifest",
       "use": "@vercel/static"
+    },
+    {
+      "src": "sentence-rewriter.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "paraphrase-essay.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "how-to-paraphrase.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -126,6 +138,18 @@
     {
       "src": "/site.webmanifest",
       "dest": "/site.webmanifest"
+    },
+    {
+      "src": "/sentence-rewriter",
+      "dest": "/sentence-rewriter.html"
+    },
+    {
+      "src": "/paraphrase-essay",
+      "dest": "/paraphrase-essay.html"
+    },
+    {
+      "src": "/how-to-paraphrase",
+      "dest": "/how-to-paraphrase.html"
     }
   ],
   "headers": [

@@ -95,6 +95,57 @@
               "@type": "Answer",
               "text": "Yes. RewordAI rewrites essays, emails, blog posts, and other writing while keeping the original meaning."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I paraphrase a sentence without changing the meaning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paste the sentence, choose Fluency or Standard, and click Paraphrase. RewordAI rewrites the wording while keeping the original idea."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this an AI paraphrasing tool or a synonym replacer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RewordAI is an AI paraphrasing tool. It rewrites full sentences instead of swapping one word at a time."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://reword-ai-six.vercel.app/#howto",
+        "name": "How to paraphrase text with RewordAI",
+        "description": "Rewrite a sentence, paragraph, or essay with the free AI paraphrasing tool.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Paste your text",
+            "text": "Copy a sentence, paragraph, or essay into the paraphrasing box."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Choose a mode",
+            "text": "Pick Standard, Fluency, Creative, Formal, Shorten, or Expand."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Click Paraphrase",
+            "text": "RewordAI rewrites the text. Copy the result and edit if needed."
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://reword-ai-six.vercel.app/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "RewordAI",
+            "item": "https://reword-ai-six.vercel.app/"
           }
         ]
       }
@@ -105,8 +156,14 @@
 <body>
   <header class="header">
     <div class="container">
-      <h1 class="logo">RewordAI</h1>
+      <a class="logo-link" href="/"><h1 class="logo">RewordAI</h1></a>
       <p class="tagline">Free AI paraphrasing tool. Rewrite text, keep your meaning.</p>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Paraphrasing tool</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+      </nav>
     </div>
   </header>
 
@@ -164,6 +221,12 @@
       </ul>
     </section>
 
+    <section class="seo-block" aria-labelledby="uses-heading">
+      <h2 id="uses-heading">What you can rewrite</h2>
+      <p>Use this free paraphrasing tool as a <a href="/sentence-rewriter">sentence rewriter</a> for short lines, or as an <a href="/paraphrase-essay">essay paraphraser</a> for longer drafts. It also helps with emails, blog posts, and product copy.</p>
+      <p>If you are new to rewriting, read <a href="/how-to-paraphrase">how to paraphrase</a> in three steps, then paste your text above.</p>
+    </section>
+
     <section class="seo-block" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
       <h3>Is RewordAI free?</h3>
@@ -172,11 +235,19 @@
       <p>Essays, emails, articles, product copy, and homework explanations. Keep the meaning, change the wording.</p>
       <h3>How is this different from a simple synonym swapper?</h3>
       <p>RewordAI rewrites full sentences with AI, not one-word replacements, so the result reads like natural English.</p>
+      <h3>How do I paraphrase a sentence without changing the meaning?</h3>
+      <p>Paste the sentence, choose Fluency or Standard, then click Paraphrase. Review the result before you use it.</p>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+      </nav>
       <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
     </div>
   </footer>

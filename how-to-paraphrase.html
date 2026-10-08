@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Paraphrase Text in 3 Steps | RewordAI Guide</title>
+  <meta name="description" content="Learn how to paraphrase: read the original, rewrite in your own words, then check the meaning. Use RewordAI as a free paraphrasing tool after you draft." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://reword-ai-six.vercel.app/how-to-paraphrase" />
+  <meta name="google-site-verification" content="B0_zV7OJkmk1e_Sh_taHDTtrHWsYbKVw23x0OM4N7ZA" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <meta property="og:title" content="How to Paraphrase Text in 3 Steps | RewordAI" />
+  <meta property="og:description" content="A simple guide to paraphrasing sentences and essays without losing meaning." />
+  <meta property="og:url" content="https://reword-ai-six.vercel.app/how-to-paraphrase" />
+  <meta property="og:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to paraphrase text in 3 steps",
+        "description": "A practical guide to paraphrasing sentences and essays while keeping the original meaning.",
+        "author": {"@type": "Organization", "name": "RewordAI"},
+        "publisher": {"@type": "Organization", "name": "RewordAI"},
+        "mainEntityOfPage": "https://reword-ai-six.vercel.app/how-to-paraphrase"
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to paraphrase",
+        "description": "Paraphrase a sentence or paragraph without changing the meaning.",
+        "step": [
+          {"@type": "HowToStep", "name": "Read the original", "text": "Understand the idea before you rewrite any words."},
+          {"@type": "HowToStep", "name": "Rewrite in your own words", "text": "Change structure and wording. Do not only swap synonyms."},
+          {"@type": "HowToStep", "name": "Check meaning and cite", "text": "Confirm the idea is the same, then cite the source if the idea is not yours."}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RewordAI", "item": "https://reword-ai-six.vercel.app/"},
+          {"@type": "ListItem", "position": 2, "name": "How to paraphrase", "item": "https://reword-ai-six.vercel.app/how-to-paraphrase"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="logo-link" href="/"><p class="logo">RewordAI</p></a>
+      <p class="tagline">How to paraphrase without losing meaning.</p>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Paraphrasing tool</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/how-to-paraphrase" aria-current="page">How to paraphrase</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> / How to paraphrase
+    </nav>
+    <h1 class="page-title">How to paraphrase text in 3 steps</h1>
+    <p class="intro-text left">Paraphrasing means restating an idea in new wording. It is not copying with a few synonyms. Use these steps, then try the free tool below if you want a second draft.</p>
+
+    <section class="seo-block">
+      <h2>1. Read until you understand</h2>
+      <p>Do not rewrite a sentence you do not understand. Note the claim, the reason, and any numbers or names you must keep.</p>
+      <h2>2. Rewrite the structure</h2>
+      <p>Change the order of clauses. Split a long sentence or join two short ones. Swap the wording after the structure changes, not before.</p>
+      <h2>3. Check meaning and cite</h2>
+      <p>Compare your version with the original. If the idea came from someone else, add a citation. A paraphrasing tool can help with wording; you still own the editing and the sources.</p>
+    </section>
+
+    <section class="seo-block">
+      <h2>Try it on your own text</h2>
+      <p>Paste a sentence into the <a href="/sentence-rewriter">sentence rewriter</a> or a paragraph into the <a href="/paraphrase-essay">essay paraphraser</a>. Then edit the result so it sounds like you.</p>
+    </section>
+
+    <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
+      <button class="mode-btn active" data-mode="Standard">Standard</button>
+      <button class="mode-btn" data-mode="Fluency">Fluency</button>
+      <button class="mode-btn" data-mode="Formal">Formal</button>
+      <button class="mode-btn" data-mode="Creative">Creative</button>
+      <button class="mode-btn" data-mode="Shorten">Shorten</button>
+      <button class="mode-btn" data-mode="Expand">Expand</button>
+    </div>
+
+    <div class="card">
+      <label class="field-label" for="inputText">Practice: paste text to paraphrase</label>
+      <textarea id="inputText" class="textarea" placeholder="Paste a sentence or short paragraph..." rows="7"></textarea>
+      <div class="row-between">
+        <span class="word-count" id="inputCount">0 words</span>
+        <button id="paraphraseBtn" class="btn btn-primary">Paraphrase</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-between">
+        <span class="field-label" id="outputLabel">Rewritten text</span>
+        <button id="copyBtn" class="btn btn-ghost" disabled>Copy</button>
+      </div>
+      <div id="output" class="output" aria-live="polite">
+        <p class="placeholder">Your paraphrased text will appear here.</p>
+      </div>
+      <div class="row-between">
+        <span class="word-count" id="outputCount">0 words</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+      </nav>
+      <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

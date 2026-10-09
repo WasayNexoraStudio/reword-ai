@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Essay Rewriter | Rewrite an Essay Online - RewordAI</title>
+  <meta name="description" content="Free essay rewriter that paraphrases draft paragraphs while keeping your ideas. Rewrite an essay online with RewordAI, then edit and cite sources yourself. No signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://reword-ai-six.vercel.app/essay-rewriter" />
+  <meta name="google-site-verification" content="B0_zV7OJkmk1e_Sh_taHDTtrHWsYbKVw23x0OM4N7ZA" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RewordAI" />
+  <meta property="og:title" content="Free Essay Rewriter | RewordAI" />
+  <meta property="og:description" content="Rewrite essay drafts in clearer English. Keep your ideas, change the wording, then cite sources yourself." />
+  <meta property="og:url" content="https://reword-ai-six.vercel.app/essay-rewriter" />
+  <meta property="og:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Essay Rewriter | RewordAI" />
+  <meta name="twitter:description" content="Paste an essay draft and rewrite it online. This is a writing aid, not a shortcut past original work." />
+  <meta name="twitter:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Free Essay Rewriter",
+        "url": "https://reword-ai-six.vercel.app/essay-rewriter",
+        "description": "Free essay rewriter that paraphrases draft paragraphs while keeping your ideas."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RewordAI", "item": "https://reword-ai-six.vercel.app/"},
+          {"@type": "ListItem", "position": 2, "name": "Essay rewriter", "item": "https://reword-ai-six.vercel.app/essay-rewriter"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I rewrite a whole essay at once?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can paste a draft, but rewriting one paragraph at a time is clearer. Then stitch the sections yourself."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is an essay rewriter the same as an essay generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. RewordAI rewrites text you provide. It does not invent a new essay or sources."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="logo-link" href="/"><p class="logo">RewordAI</p></a>
+      <p class="tagline">Free essay rewriter. Clearer drafts, your ideas.</p>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Paraphrasing tool</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer">Summarizer</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> / Essay rewriter
+    </nav>
+    <h1 class="page-title">Free essay rewriter</h1>
+    <p class="intro-text left">Paste a paragraph from your draft. RewordAI rewrites the wording so you can edit, cite, and keep your argument. This is a writing aid, not a way to skip original work. For a related tool, see the <a href="/paraphrase-essay">essay paraphraser</a>.</p>
+
+    <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
+      <button class="mode-btn active" data-mode="Formal">Formal</button>
+      <button class="mode-btn" data-mode="Fluency">Fluency</button>
+      <button class="mode-btn" data-mode="Standard">Standard</button>
+      <button class="mode-btn" data-mode="Shorten">Shorten</button>
+      <button class="mode-btn" data-mode="Expand">Expand</button>
+      <button class="mode-btn" data-mode="Creative">Creative</button>
+    </div>
+
+    <div class="card">
+      <label class="field-label" for="inputText">Paste an essay paragraph</label>
+      <textarea id="inputText" class="textarea" placeholder="Paste one paragraph from your essay draft..." rows="8"></textarea>
+      <div class="row-between">
+        <span class="word-count" id="inputCount">0 words</span>
+        <button id="paraphraseBtn" class="btn btn-primary">Rewrite essay text</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-between">
+        <span class="field-label" id="outputLabel">Rewritten text</span>
+        <button id="copyBtn" class="btn btn-ghost" disabled>Copy</button>
+      </div>
+      <div id="output" class="output" aria-live="polite">
+        <p class="placeholder">Your rewritten essay text will appear here.</p>
+      </div>
+      <div class="row-between">
+        <span class="word-count" id="outputCount">0 words</span>
+      </div>
+    </div>
+
+    <section class="seo-block">
+      <h2>How to rewrite an essay with this tool</h2>
+      <ol class="mode-list">
+        <li>Rewrite one paragraph at a time so the argument stays under your control.</li>
+        <li>Use Formal for academic tone or Fluency if the paragraph is stiff.</li>
+        <li>Keep quotes, data, and citations. Add sources yourself.</li>
+      </ol>
+      <p>More detail: <a href="/blog/how-to-rewrite-an-essay">how to rewrite an essay</a>.</p>
+    </section>
+
+    <section class="seo-block">
+      <h2>FAQ</h2>
+      <h3>Can I rewrite a whole essay at once?</h3>
+      <p>You can paste a longer draft, but one paragraph at a time is clearer.</p>
+      <h3>Is an essay rewriter the same as an essay generator?</h3>
+      <p>No. RewordAI rewrites text you provide. It does not invent a new essay.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer">Text summarizer</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+      <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

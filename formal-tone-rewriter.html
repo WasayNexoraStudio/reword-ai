@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formal Tone Rewriter | Make Text Professional - RewordAI</title>
+  <meta name="description" content="Rewrite casual text in a formal, professional tone. Free formal rewriter for emails, essays, and reports. Keep the meaning, change the register. No signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://reword-ai-six.vercel.app/formal-tone-rewriter" />
+  <meta name="google-site-verification" content="B0_zV7OJkmk1e_Sh_taHDTtrHWsYbKVw23x0OM4N7ZA" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RewordAI" />
+  <meta property="og:title" content="Formal Tone Rewriter | RewordAI" />
+  <meta property="og:description" content="Turn casual wording into a professional, formal tone without changing the idea." />
+  <meta property="og:url" content="https://reword-ai-six.vercel.app/formal-tone-rewriter" />
+  <meta property="og:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Formal Tone Rewriter | RewordAI" />
+  <meta name="twitter:description" content="Rewrite emails, essays, and reports in a professional tone." />
+  <meta name="twitter:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Formal Tone Rewriter",
+        "url": "https://reword-ai-six.vercel.app/formal-tone-rewriter",
+        "description": "Free formal tone rewriter that turns casual text into professional wording."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RewordAI", "item": "https://reword-ai-six.vercel.app/"},
+          {"@type": "ListItem", "position": 2, "name": "Formal tone rewriter", "item": "https://reword-ai-six.vercel.app/formal-tone-rewriter"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does a formal tone rewriter do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It rewrites casual or spoken wording into a professional register suitable for school, work, or reports."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this formal rewriter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste text and rewrite it in Formal mode without creating an account."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="logo-link" href="/"><p class="logo">RewordAI</p></a>
+      <p class="tagline">Formal tone rewriter. Professional wording, same idea.</p>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Paraphrasing tool</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer">Summarizer</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> / Formal tone rewriter
+    </nav>
+    <h1 class="page-title">Formal tone rewriter</h1>
+    <p class="intro-text left">Paste casual wording and RewordAI will rewrite it in a professional tone. Use this for emails, reports, and academic drafts. Keep names and facts; change slang, contractions, and loose phrasing.</p>
+
+    <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
+      <button class="mode-btn active" data-mode="Formal">Formal</button>
+      <button class="mode-btn" data-mode="Fluency">Fluency</button>
+      <button class="mode-btn" data-mode="Standard">Standard</button>
+      <button class="mode-btn" data-mode="Shorten">Shorten</button>
+      <button class="mode-btn" data-mode="Expand">Expand</button>
+      <button class="mode-btn" data-mode="Creative">Creative</button>
+    </div>
+
+    <div class="card">
+      <label class="field-label" for="inputText">Paste casual text</label>
+      <textarea id="inputText" class="textarea" placeholder="Paste the informal text you want to make professional..." rows="8"></textarea>
+      <div class="row-between">
+        <span class="word-count" id="inputCount">0 words</span>
+        <button id="paraphraseBtn" class="btn btn-primary">Rewrite in formal tone</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-between">
+        <span class="field-label" id="outputLabel">Rewritten text</span>
+        <button id="copyBtn" class="btn btn-ghost" disabled>Copy</button>
+      </div>
+      <div id="output" class="output" aria-live="polite">
+        <p class="placeholder">Your formal rewrite will appear here.</p>
+      </div>
+      <div class="row-between">
+        <span class="word-count" id="outputCount">0 words</span>
+      </div>
+    </div>
+
+    <section class="seo-block">
+      <h2>When to use Formal mode</h2>
+      <p>Use it when a draft is true but too spoken: “gonna”, “a bunch of”, or “I think maybe”. Formal mode aims for complete sentences and a workplace or classroom register. It is not a grammar exam and it will not add citations.</p>
+      <p>Read <a href="/blog/formal-vs-fluent-writing">formal vs fluent writing</a> if you are choosing between Formal and Fluency.</p>
+    </section>
+
+    <section class="seo-block">
+      <h2>Before and after example</h2>
+      <p>Static sample of a Formal rewrite. Your live result will differ.</p>
+      <div class="example-grid">
+        <div class="example-card">
+          <h3>Before</h3>
+          <p>Hey, just wanted to let you know we couldn't finish the draft because folks were out and we didn't get the numbers yet.</p>
+        </div>
+        <div class="example-card">
+          <h3>After</h3>
+          <p>I am writing to let you know we could not complete the draft. Several team members were unavailable, and the figures have not arrived yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-block">
+      <h2>FAQ</h2>
+      <h3>What does a formal tone rewriter do?</h3>
+      <p>It turns casual wording into a professional register for school, work, or reports.</p>
+      <h3>Is this formal rewriter free?</h3>
+      <p>Yes. No account is required.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer">Text summarizer</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+      <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

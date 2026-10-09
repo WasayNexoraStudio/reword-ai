@@ -5,7 +5,30 @@ const MODES = {
   Formal: "Rewrite the text in a professional, formal tone.",
   Shorten: "Rewrite the text to be concise while keeping all key information.",
   Expand: "Rewrite the text by adding more detail and depth while keeping the meaning.",
+  Summarize: "Summarize the text clearly. Keep the key points and do not add new facts.",
 };
+
+const MAX_CHARS = 20000;
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 12;
+const rateHits = new Map();
+
+function clientIp(req) {
+  const forwarded = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  return forwarded || req.socket?.remoteAddress || "unknown";
+}
+
+function rateLimit(ip) {
+  const now = Date.now();
+  const recent = (rateHits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= RATE_MAX) {
+    rateHits.set(ip, recent);
+    return false;
+  }
+  recent.push(now);
+  rateHits.set(ip, recent);
+  return true;
+}
 
 const GEMINI_DEFAULT = "gemini-2.0-flash";
 const GEMINI_FALLBACKS = ["gemini-2.0-flash", "gemini-2.5-flash", "gemini-1.5-flash"];
@@ -170,9 +193,17 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid JSON body." });
     }
 
+    if (!rateLimit(clientIp(req))) {
+      res.setHeader("Retry-After", "60");
+      return res.status(429).json({ error: "Too many requests. Wait a minute and try again." });
+    }
+
     const { text, mode } = body;
     if (!text || typeof text !== "string" || !text.trim()) {
       return res.status(400).json({ error: "Please paste some text first." });
+    }
+    if (text.length > MAX_CHARS) {
+      return res.status(400).json({ error: `Text is too long. Keep it under ${MAX_CHARS} characters.` });
     }
 
     const style = MODES[mode] || MODES.Standard;
@@ -195,10 +226,12 @@ export default async function handler(req, res) {
       });
     }
 
-    const system =
-      "You are RewordAI, an expert paraphrasing assistant. " +
-      "Rewrite the user's text according to the requested mode. " +
-      "Return only the rewritten text, no explanations, no quotes, no preamble.";
+    const summarize = mode === "Summarize";
+    const system = summarize
+      ? "You are RewordAI. Summarize the user's text. Keep the key points. Do not add new facts. Return only the summary, no explanations, no quotes, no preamble."
+      : "You are RewordAI, an expert paraphrasing assistant. " +
+        "Rewrite the user's text according to the requested mode. " +
+        "Return only the rewritten text, no explanations, no quotes, no preamble.";
     const prompt = `${style}\n\nOriginal text:\n${text}`;
 
     const { response, extract } = gemini

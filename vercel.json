@@ -72,6 +72,62 @@
     {
       "src": "how-to-paraphrase.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "paragraph-rewriter.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ai-paraphrasing-tool.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "formal-tone-rewriter.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "essay-rewriter.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "text-summarizer.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "about.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "contact.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "privacy.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "terms.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog/how-to-paraphrase-without-plagiarism.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog/paraphrase-vs-summarize.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog/how-to-rewrite-an-essay.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog/formal-vs-fluent-writing.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -150,6 +206,62 @@
     {
       "src": "/how-to-paraphrase",
       "dest": "/how-to-paraphrase.html"
+    },
+    {
+      "src": "/paragraph-rewriter",
+      "dest": "/paragraph-rewriter.html"
+    },
+    {
+      "src": "/ai-paraphrasing-tool",
+      "dest": "/ai-paraphrasing-tool.html"
+    },
+    {
+      "src": "/formal-tone-rewriter",
+      "dest": "/formal-tone-rewriter.html"
+    },
+    {
+      "src": "/essay-rewriter",
+      "dest": "/essay-rewriter.html"
+    },
+    {
+      "src": "/text-summarizer",
+      "dest": "/text-summarizer.html"
+    },
+    {
+      "src": "/about",
+      "dest": "/about.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/contact.html"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/privacy.html"
+    },
+    {
+      "src": "/terms",
+      "dest": "/terms.html"
+    },
+    {
+      "src": "/blog",
+      "dest": "/blog/index.html"
+    },
+    {
+      "src": "/blog/how-to-paraphrase-without-plagiarism",
+      "dest": "/blog/how-to-paraphrase-without-plagiarism.html"
+    },
+    {
+      "src": "/blog/paraphrase-vs-summarize",
+      "dest": "/blog/paraphrase-vs-summarize.html"
+    },
+    {
+      "src": "/blog/how-to-rewrite-an-essay",
+      "dest": "/blog/how-to-rewrite-an-essay.html"
+    },
+    {
+      "src": "/blog/formal-vs-fluent-writing",
+      "dest": "/blog/formal-vs-fluent-writing.html"
     }
   ],
   "headers": [

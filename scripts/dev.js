@@ -71,6 +71,13 @@ function serveStatic(req, res) {
   const url = new URL(req.url, "http://localhost");
   let pathname = decodeURIComponent(url.pathname);
   if (pathname === "/") pathname = "/index.html";
+  else if (!path.extname(pathname)) {
+    pathname = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+  }
+
+  const candidates = path.extname(pathname)
+    ? [pathname]
+    : [pathname, `${pathname}.html`, `${pathname}/index.html`];
   if (pathname.includes("\0") || pathname.includes("..")) {
     res.statusCode = 400;
     res.end("Bad request");
@@ -78,13 +85,15 @@ function serveStatic(req, res) {
   }
 
   for (const dir of STATIC_ROOTS) {
-    const filePath = path.join(dir, pathname);
-    if (!filePath.startsWith(dir)) continue;
-    if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) continue;
-    const ext = path.extname(filePath).toLowerCase();
-    res.setHeader("Content-Type", MIME[ext] || "application/octet-stream");
-    fs.createReadStream(filePath).pipe(res);
-    return;
+    for (const candidate of candidates) {
+      const filePath = path.join(dir, candidate);
+      if (!filePath.startsWith(dir)) continue;
+      if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) continue;
+      const ext = path.extname(filePath).toLowerCase();
+      res.setHeader("Content-Type", MIME[ext] || "application/octet-stream");
+      fs.createReadStream(filePath).pipe(res);
+      return;
+    }
   }
 
   res.statusCode = 404;

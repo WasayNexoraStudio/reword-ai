@@ -61,7 +61,7 @@
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Web",
         "url": "https://reword-ai-six.vercel.app/",
-        "description": "Free online AI paraphraser that rewrites text in Standard, Fluency, Creative, Formal, Shorten, and Expand modes.",
+        "description": "Free online AI paraphraser that rewrites text in Standard, Fluency, Creative, Formal, Shorten, Expand, and Summarize modes.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -85,7 +85,7 @@
             "name": "How do I paraphrase text with RewordAI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Paste your sentence, paragraph, or article into the box, pick a mode such as Standard, Fluency, Creative, Formal, Shorten, or Expand, then click Paraphrase."
+              "text": "Paste your sentence, paragraph, or article into the box, pick a mode such as Standard, Fluency, Creative, Formal, Shorten, Expand, or Summarize, then click Paraphrase."
             }
           },
           {
@@ -128,7 +128,7 @@
           {
             "@type": "HowToStep",
             "name": "Choose a mode",
-            "text": "Pick Standard, Fluency, Creative, Formal, Shorten, or Expand."
+            "text": "Pick Standard, Fluency, Creative, Formal, Shorten, Expand, or Summarize."
           },
           {
             "@type": "HowToStep",
@@ -159,10 +159,13 @@
       <a class="logo-link" href="/"><h1 class="logo">RewordAI</h1></a>
       <p class="tagline">Free AI paraphrasing tool. Rewrite text, keep your meaning.</p>
       <nav class="nav" aria-label="Main">
-        <a href="/">Paraphrasing tool</a>
+        <a href="/" aria-current="page">Paraphrasing tool</a>
         <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
         <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer">Summarizer</a>
         <a href="/how-to-paraphrase">How to paraphrase</a>
+        <a href="/blog">Blog</a>
       </nav>
     </div>
   </header>
@@ -170,7 +173,7 @@
   <main class="container">
     <section class="intro" aria-labelledby="tool-heading">
       <h2 id="tool-heading" class="sr-only">AI paraphraser</h2>
-      <p class="intro-text">Paste any sentence, paragraph, or article and RewordAI will rewrite it in seconds. Use it as a free paraphrasing tool for essays, emails, and blog posts.</p>
+      <p class="intro-text">Paste any sentence, paragraph, or article and RewordAI will rewrite it. Use it as a free paraphrasing tool for essays, emails, and blog posts. Review names, numbers, and citations yourself.</p>
     </section>
 
     <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
@@ -180,6 +183,7 @@
       <button class="mode-btn" data-mode="Formal">Formal</button>
       <button class="mode-btn" data-mode="Shorten">Shorten</button>
       <button class="mode-btn" data-mode="Expand">Expand</button>
+      <button class="mode-btn" data-mode="Summarize">Summarize</button>
     </div>
 
     <div class="card">
@@ -218,13 +222,19 @@
         <li><strong>Formal</strong> — switch to a professional, academic tone.</li>
         <li><strong>Shorten</strong> — cut extra words without dropping key facts.</li>
         <li><strong>Expand</strong> — add detail and depth to short drafts.</li>
+        <li><strong>Summarize</strong> — keep the key points and drop extra wording.</li>
       </ul>
     </section>
 
     <section class="seo-block" aria-labelledby="uses-heading">
       <h2 id="uses-heading">What you can rewrite</h2>
-      <p>Use this free paraphrasing tool as a <a href="/sentence-rewriter">sentence rewriter</a> for short lines, or as an <a href="/paraphrase-essay">essay paraphraser</a> for longer drafts. It also helps with emails, blog posts, and product copy.</p>
-      <p>If you are new to rewriting, read <a href="/how-to-paraphrase">how to paraphrase</a> in three steps, then paste your text above.</p>
+      <p>Use this free paraphrasing tool as a <a href="/sentence-rewriter">sentence rewriter</a> for short lines, a <a href="/paragraph-rewriter">paragraph rewriter</a> for one block of text, or an <a href="/essay-rewriter">essay rewriter</a> for draft paragraphs. Need a recap instead of a rewrite? Use the <a href="/text-summarizer">text summarizer</a>.</p>
+      <p>For a professional register, try the <a href="/formal-tone-rewriter">formal tone rewriter</a>. If you are new to rewriting, read <a href="/how-to-paraphrase">how to paraphrase</a>, then paste your text above.</p>
+      <nav class="related-links" aria-label="More RewordAI tools">
+        <a href="/ai-paraphrasing-tool">AI paraphrasing tool</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/blog">Writing guides</a>
+      </nav>
     </section>
 
     <section class="seo-block" aria-labelledby="faq-heading">
@@ -245,8 +255,14 @@
       <nav class="footer-nav" aria-label="Footer">
         <a href="/">Home</a>
         <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
         <a href="/paraphrase-essay">Essay paraphraser</a>
-        <a href="/how-to-paraphrase">How to paraphrase</a>
+        <a href="/text-summarizer">Text summarizer</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
       </nav>
       <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
     </div>

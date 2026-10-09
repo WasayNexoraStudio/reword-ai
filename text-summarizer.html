@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Text Summarizer | Summarize Text Online - RewordAI</title>
+  <meta name="description" content="Free text summarizer that shortens a paragraph or article to the key points. Paste text, click Summarize, and get a concise recap. No signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://reword-ai-six.vercel.app/text-summarizer" />
+  <meta name="google-site-verification" content="B0_zV7OJkmk1e_Sh_taHDTtrHWsYbKVw23x0OM4N7ZA" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RewordAI" />
+  <meta property="og:title" content="Free Text Summarizer | RewordAI" />
+  <meta property="og:description" content="Summarize text online. Keep the key points. Do not add new facts." />
+  <meta property="og:url" content="https://reword-ai-six.vercel.app/text-summarizer" />
+  <meta property="og:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Text Summarizer | RewordAI" />
+  <meta name="twitter:description" content="Paste a paragraph or article and get a concise recap." />
+  <meta name="twitter:image" content="https://reword-ai-six.vercel.app/og.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Free Text Summarizer",
+        "url": "https://reword-ai-six.vercel.app/text-summarizer",
+        "description": "Free text summarizer that shortens text to the key points without adding new facts."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RewordAI", "item": "https://reword-ai-six.vercel.app/"},
+          {"@type": "ListItem", "position": 2, "name": "Text summarizer", "item": "https://reword-ai-six.vercel.app/text-summarizer"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between paraphrase and summarize?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A paraphrase restates the same idea in new wording and similar length. A summary keeps only the key points and is shorter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this text summarizer free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste text and summarize it with RewordAI without creating an account."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="logo-link" href="/"><p class="logo">RewordAI</p></a>
+      <p class="tagline">Free text summarizer. Key points, fewer words.</p>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Paraphrasing tool</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer" aria-current="page">Summarizer</a>
+        <a href="/how-to-paraphrase">How to paraphrase</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> / Text summarizer
+    </nav>
+    <h1 class="page-title">Free text summarizer</h1>
+    <p class="intro-text left">Paste a paragraph or short article. Summarize mode keeps the key points and drops extra wording. It should not add new facts. If you need the same length in new words, use the <a href="/">paraphrasing tool</a> instead.</p>
+
+    <div class="controls" id="modeControls" role="group" aria-label="Paraphrase mode">
+      <button class="mode-btn active" data-mode="Summarize">Summarize</button>
+      <button class="mode-btn" data-mode="Shorten">Shorten</button>
+      <button class="mode-btn" data-mode="Fluency">Fluency</button>
+      <button class="mode-btn" data-mode="Standard">Standard</button>
+      <button class="mode-btn" data-mode="Formal">Formal</button>
+    </div>
+
+    <div class="card">
+      <label class="field-label" for="inputText">Paste text to summarize</label>
+      <textarea id="inputText" class="textarea" placeholder="Paste a paragraph or short article..." rows="8"></textarea>
+      <div class="row-between">
+        <span class="word-count" id="inputCount">0 words</span>
+        <button id="paraphraseBtn" class="btn btn-primary">Summarize</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-between">
+        <span class="field-label" id="outputLabel">Summary</span>
+        <button id="copyBtn" class="btn btn-ghost" disabled>Copy</button>
+      </div>
+      <div id="output" class="output" aria-live="polite">
+        <p class="placeholder">Your summary will appear here.</p>
+      </div>
+      <div class="row-between">
+        <span class="word-count" id="outputCount">0 words</span>
+      </div>
+    </div>
+
+    <section class="seo-block">
+      <h2>Summarize vs Shorten vs paraphrase</h2>
+      <ul class="mode-list">
+        <li><strong>Summarize</strong> — keep key points, drop detail, shorter recap.</li>
+        <li><strong>Shorten</strong> — cut extra words but keep most of the original claims.</li>
+        <li><strong>Paraphrase</strong> — same idea, new wording, similar length.</li>
+      </ul>
+      <p>Read <a href="/blog/paraphrase-vs-summarize">paraphrase vs summarize</a> for examples.</p>
+    </section>
+
+    <section class="seo-block">
+      <h2>FAQ</h2>
+      <h3>What is the difference between paraphrase and summarize?</h3>
+      <p>A paraphrase restates the idea in new wording. A summary is shorter and keeps only the key points.</p>
+      <h3>Is this text summarizer free?</h3>
+      <p>Yes. No account is required.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/sentence-rewriter">Sentence rewriter</a>
+        <a href="/paragraph-rewriter">Paragraph rewriter</a>
+        <a href="/paraphrase-essay">Essay paraphraser</a>
+        <a href="/text-summarizer">Text summarizer</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+      <p>RewordAI — free AI paraphrasing tool for rewriting text online.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
